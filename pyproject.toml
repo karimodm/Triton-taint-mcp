@@ -1,0 +1,31 @@
+[project]
+name = "triton-taint-mcp"
+version = "0.1.0"
+description = "MCP server exposing Triton taint analysis as tools"
+authors = [{ name = "Triton MCP" }]
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.11"
+dependencies = [
+    "mcp>=1.2.0",
+    "pydantic>=2.9",
+    "lief>=0.15.1",
+    "triton-library>=1.0.0rc4",
+]
+
+[project.scripts]
+triton-taint-mcp = "triton_taint_mcp.main:run"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+dev-dependencies = [
+    "pytest",
+    "rich"
+]
+
+#[tool.uv.sources]
+# Uncomment if you want to develop against the local clone:
+# triton-local = { path = "./Triton", editable = true }
